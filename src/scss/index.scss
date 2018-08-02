@@ -28,6 +28,11 @@ p {
     margin-top: 2px;
 }
 
+svg {
+    height: 30px;
+    width: 30px;
+}
+
 .gradient-1 {
     background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
 }
