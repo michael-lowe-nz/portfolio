@@ -15,6 +15,7 @@
   "author": "Michael Lowe",
   "license": "ISC",
   "devDependencies": {
+    "cypress": "^3.0.3",
     "node-sass": "^4.9.2",
     "parcel-bundler": "^1.9.7"
   }
