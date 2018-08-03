@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Arimo|Didact+Gothic|Open+Sans|Roboto+Mono');
-
+@import './animation';
 
 body, html {
     transition: background-color 2s ease;
@@ -21,11 +21,13 @@ body, html {
 h1 {
     font-family: 'Roboto Mono';
     margin-bottom: 4px;
+    visibility: hidden;
 }
 
 p {
     font-family: 'Arimo', sans-serif;
     margin-top: 2px;
+    visibility: hidden;
 }
 
 svg {
