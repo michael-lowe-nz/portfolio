@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Arimo|Didact+Gothic|Open+Sans|Roboto+Mono');
 @import './animation';
+@import './gradients';
 
 body, html {
     transition: background-color 2s ease;
@@ -30,47 +31,24 @@ p {
     visibility: hidden;
 }
 
-svg {
-    height: 30px;
-    width: 30px;
+a {
+    display: inline-block;
+    transition: transform .3s ease-out;
+
+    &:hover {
+        transform: translateY(3px);
+    }
 }
 
-.gradient-1 {
-    background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+a, u {
+    text-decoration: none;
+    
 }
 
-.gradient-2 {
-    background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
-}
 
-.gradient-3 {
-    background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
-}
-
-.gradient-4 {
-    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
-}
-
-.gradient-5 {
-    background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
-}
-
-.gradient-6 {
-    background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
-}
-
-.gradient-7 {
-    background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
-}
-
-.gradient-8 {
-    background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
-}
-
-.gradient-9 {
-    background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
-}
-
-.gradient-10 {
-    background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
+img {
+    height: 25px;
+    margin-right: 10px;
+    visibility: hidden;
+    
 }
