@@ -17,6 +17,7 @@
   "devDependencies": {
     "cypress": "^3.0.3",
     "node-sass": "^4.9.2",
-    "parcel-bundler": "^1.9.7"
+    "parcel-bundler": "^1.9.7",
+    "vivus": "^0.4.4"
   }
 }
