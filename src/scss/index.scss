@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Arimo|Didact+Gothic|Open+Sans|Roboto+Mono');
 @import './animation';
+@import './home';
 @import './gradients';
-@import './logo';
+@import './form.scss';
 
-body, html {
+body, .gradient-target {
     transition: background-color 2s ease;
     height: 100%;
     margin: 0;
@@ -13,43 +14,29 @@ body, html {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: white;
 }
 
 * {
     font-family: sans-serif;
-    color: white;
 }
 
 h1 {
     font-family: 'Roboto Mono';
     margin-bottom: 4px;
-    visibility: hidden;
 }
-
-p {
-    font-family: 'Arimo', sans-serif;
-    margin-top: 2px;
-    visibility: hidden;
-}
-
-a {
-    display: inline-block;
-    transition: transform .3s ease-out;
-
-    &:hover {
-        transform: translateY(3px);
-    }
-}
-
-a, u {
-    text-decoration: none;
-    
-}
-
 
 img {
     height: 25px;
     margin-right: 10px;
-    visibility: hidden;
-    
+
+    &.fadeInDown {
+        visibility: visible;
+    }
+}
+
+.app {
+    h1, p, img {
+        visibility: hidden;
+    }
 }

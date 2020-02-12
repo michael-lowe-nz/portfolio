@@ -1,0 +1,19 @@
+.app {
+    p {
+        font-family: 'Arimo', sans-serif;
+        margin-top: 2px;
+    }
+    
+    a {
+        display: inline-block;
+        transition: transform .3s ease-out;
+    
+        &:hover {
+            transform: translateY(3px);
+        }
+    }
+    
+    a, u {
+        text-decoration: none;
+    }
+}

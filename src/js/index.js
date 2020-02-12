@@ -1,5 +1,5 @@
-import '../scss/index.scss'
+// import '../scss/index.scss'
 
-import './animation'
-import './gradient'
-import './svg'
+// import './animation'
+// import './gradient'
+// import './svg'
