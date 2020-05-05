@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel src/index.html --log-level 3",
-    "build": "parcel build src/index.html",
-    "test": "cypress test/*.js"
+    "build": "parcel build src/index.html"
   },
   "alias": {
     "react": "preact/compat",
@@ -28,7 +27,6 @@
     "vivus": "^0.4.4"
   },
   "dependencies": {
-    "cypress": "^3.0.3",
     "react-loader-spinner": "^3.1.14"
   }
 }
