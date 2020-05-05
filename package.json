@@ -8,6 +8,11 @@
     "build": "parcel build src/index.html",
     "test": "cypress test/*.js"
   },
+  "alias": {
+    "react": "preact/compat",
+    "react-dom/test-utils": "preact/test-utils",
+    "react-dom": "preact/compat"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/michael-lowe-nz/portfolio"
@@ -17,7 +22,13 @@
   "devDependencies": {
     "cypress": "^3.0.3",
     "node-sass": "^4.9.2",
-    "parcel-bundler": "^1.9.7",
+    "parcel-bundler": "^1.12.4",
+    "preact": "^10.3.1",
+    "preact-router": "^3.2.1",
+    "sass": "^1.25.0",
     "vivus": "^0.4.4"
+  },
+  "dependencies": {
+    "react-loader-spinner": "^3.1.14"
   }
 }
