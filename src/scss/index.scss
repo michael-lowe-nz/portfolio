@@ -4,6 +4,14 @@
 @import './gradients';
 @import './form.scss';
 
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
 body, .gradient-target {
     transition: background-color 2s ease;
     height: 100%;
