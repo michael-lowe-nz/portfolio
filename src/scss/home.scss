@@ -1,4 +1,4 @@
-.app {
+.home {
     p {
         font-family: 'Arimo', sans-serif;
         margin-top: 2px;
@@ -16,4 +16,24 @@
     a, u {
         text-decoration: none;
     }
+
+    h1, p, img {
+        visibility: hidden;
+    }
+
+    h1 {
+        font-family: 'Roboto Mono';
+        margin-bottom: 4px;
+    }
+    
+    img {
+        height: 25px;
+        margin-right: 10px;
+    
+        &.fadeInDown {
+            visibility: visible;
+        }
+    }
 }
+
+

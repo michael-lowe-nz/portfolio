@@ -1,6 +1,5 @@
 import { h, render, Component } from 'preact'
 import Router from 'preact-router'
-
 import './scss/index.scss'
 
 import Home from './components/Home'

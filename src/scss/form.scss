@@ -43,6 +43,7 @@ form {
         padding: 1rem;
         font-size: 1rem;
         border: solid 1px #7b7b7b;
+        border-radius: 4px;
     }
 
     button {
@@ -51,8 +52,8 @@ form {
         width: 100%;
         font-size: 1.2rem;
         padding: 0.8rem;
-        color:#7b7b7b;
-        background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+        color: white;
+        background-color: #3498db;
         &:hover {
             cursor: pointer;
         }
@@ -62,3 +63,29 @@ form {
         width: 100%;
     }
 }
+
+.close {
+    position: absolute;
+    left: 32px;
+    top: 32px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
+  }
+  .close:hover {
+    opacity: 1;
+  }
+  .close:before, .close:after {
+    position: absolute;
+    right: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: #333;
+  }
+  .close:before {
+    transform: rotate(45deg);
+  }
+  .close:after {
+    transform: rotate(-45deg);
+  }

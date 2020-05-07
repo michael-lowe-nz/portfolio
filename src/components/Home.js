@@ -4,7 +4,7 @@ import Logo from './Logo'
 import Text from './Text'
 
 const Home = () => (
-    <div className="app">
+    <div className="home">
         <Text />
     </div>
 )

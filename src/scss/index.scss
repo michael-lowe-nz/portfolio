@@ -28,23 +28,3 @@ body, .gradient-target {
 * {
     font-family: sans-serif;
 }
-
-h1 {
-    font-family: 'Roboto Mono';
-    margin-bottom: 4px;
-}
-
-img {
-    height: 25px;
-    margin-right: 10px;
-
-    &.fadeInDown {
-        visibility: visible;
-    }
-}
-
-.app {
-    h1, p, img {
-        visibility: hidden;
-    }
-}

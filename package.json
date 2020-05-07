@@ -27,6 +27,7 @@
     "vivus": "^0.4.4"
   },
   "dependencies": {
+    "parcel-plugin-static-files-copy": "^2.3.1",
     "react-loader-spinner": "^3.1.14"
   }
 }
