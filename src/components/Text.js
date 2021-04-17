@@ -48,10 +48,10 @@ class Text extends Component {
                 </h1>
                 <p style={{visibility: this.state.subtitle ? 'visible' : 'hidden'}} className={this.state.subtitle && "fadeInDown"} id="subtitle">web developer.</p>
                 <div className="icons">
-                    <a target="_blank" href="https://github.com/michael-lowe-nz">
+                    <a target="_blank" rel="noreferrer noopener" href="https://github.com/michael-lowe-nz">
                         <img style={{visibility: this.state.github ? 'visible' : 'hidden'}} src={github_logo} className={this.state.github && "fadeInDown"} />
                     </a>
-                    <a target="_blank" href="https://www.linkedin.com/in/michael-lowe-b7611784/">
+                    <a target="_blank" rel="noreferrer noopener" href="https://www.linkedin.com/in/michael-lowe-b7611784/">
                         <img style={{visibility: this.state.linkedin ? 'visible' : 'hidden'}} className={this.state.linkedin && "fadeInDown"} src={linkedin_logo} />
                     </a>
                     <Link activeClassName="active" href="/contact">
