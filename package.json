@@ -19,7 +19,7 @@
   "author": "Michael Lowe",
   "license": "ISC",
   "devDependencies": {
-    "node-sass": "^4.9.2",
+    "node-sass": "^7.0.0",
     "parcel-bundler": "^1.12.4",
     "preact": "^10.3.1",
     "preact-router": "^3.2.1",
