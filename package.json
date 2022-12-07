@@ -4,7 +4,7 @@
   "description": "My portfolio",
   "main": "index.js",
   "scripts": {
-    "start": "parcel src/index.html --log-level 3",
+    "start": "parcel src/index.html",
     "build": "parcel build src/index.html"
   },
   "alias": {
@@ -19,15 +19,13 @@
   "author": "Michael Lowe",
   "license": "ISC",
   "devDependencies": {
-    "node-sass": "^4.9.2",
-    "parcel-bundler": "^1.12.4",
-    "preact": "^10.3.1",
-    "preact-router": "^3.2.1",
-    "sass": "^1.25.0",
-    "vivus": "^0.4.4"
+    "@parcel/transformer-sass": "^2.8.0",
+    "parcel": "^2.8.0",
+    "preact-router": "^4.1.0"
   },
   "dependencies": {
-    "parcel-plugin-static-files-copy": "^2.3.1",
+    "parcel-plugin-static-files-copy": "^1.2.4",
+    "preact": "^10.11.3",
     "react-loader-spinner": "^3.1.14"
   }
 }
