@@ -1,5 +1,5 @@
-import { h, Component } from 'preact'
-import { Link } from 'preact-router/match';
+import { Component } from 'preact'
+import { Link } from 'preact-router/match'
 
 import github_logo from '../assets/GitHub-Mark-Light-120px-plus.png'
 import linkedin_logo from '../assets/In-White-66px-R.png'
@@ -8,54 +8,56 @@ import message_icon from '../assets/message-64.png'
 class Text extends Component {
     constructor(props) {
         super(props)
+        this.state = {}
         this.baseDelay = 1000
     }
+
     componentDidMount() {
-        setTimeout(() => {
-            this.setState({
-                title: true
-            })
-        }, this.baseDelay)
-        setTimeout(() => {
-            this.setState({
-                subtitle: true
-            })
-        }, this.baseDelay + 100)
-        setTimeout(() => {
-            this.setState({
-                github: true
-            })
-        }, this.baseDelay + 200)
-        setTimeout(() => {
-            this.setState({
-                linkedin: true
-            })
-        }, this.baseDelay + 400)
-        setTimeout(() => {
-            this.setState({
-                contact: true
-            })
-        }, this.baseDelay + 500)
+        setTimeout(() => this.setState({ title: true }), this.baseDelay)
+        setTimeout(() => this.setState({ subtitle: true }), this.baseDelay + 100)
+        setTimeout(() => this.setState({ github: true }), this.baseDelay + 200)
+        setTimeout(() => this.setState({ linkedin: true }), this.baseDelay + 400)
+        setTimeout(() => this.setState({ contact: true }), this.baseDelay + 500)
     }
+
     render() {
+        const { title, subtitle, github, linkedin, contact } = this.state
         return (
-            <div className="text" style={{zIndex: 10}}>
+            <div className="text" style={{ zIndex: 10 }}>
                 <h1
-                    className={this.state.title && "fadeInDown"}
-                    style={{visibility: this.state.title ? 'visible' : 'hidden'}}
-                    id="name">
+                    className={title ? 'fadeInDown' : ''}
+                    style={{ visibility: title ? 'visible' : 'hidden' }}>
                     michael lowe
                 </h1>
-                <p style={{visibility: this.state.subtitle ? 'visible' : 'hidden'}} className={this.state.subtitle && "fadeInDown"} id="subtitle">web developer.</p>
+                <p
+                    className={subtitle ? 'fadeInDown' : ''}
+                    style={{ visibility: subtitle ? 'visible' : 'hidden' }}>
+                    web developer.
+                </p>
                 <div className="icons">
                     <a target="_blank" rel="noreferrer noopener" href="https://github.com/michael-lowe-nz">
-                        <img style={{visibility: this.state.github ? 'visible' : 'hidden'}} src={github_logo} className={this.state.github && "fadeInDown"} />
+                        <img
+                            src={github_logo}
+                            alt="GitHub"
+                            className={github ? 'fadeInDown' : ''}
+                            style={{ visibility: github ? 'visible' : 'hidden' }}
+                        />
                     </a>
                     <a target="_blank" rel="noreferrer noopener" href="https://www.linkedin.com/in/michael-lowe-b7611784/">
-                        <img style={{visibility: this.state.linkedin ? 'visible' : 'hidden'}} className={this.state.linkedin && "fadeInDown"} src={linkedin_logo} />
+                        <img
+                            src={linkedin_logo}
+                            alt="LinkedIn"
+                            className={linkedin ? 'fadeInDown' : ''}
+                            style={{ visibility: linkedin ? 'visible' : 'hidden' }}
+                        />
                     </a>
-                    <Link activeClassName="active" href="/contact">
-                        <img style={{visibility: this.state.contact ? 'visible' : 'hidden'}} className={this.state.contact && "fadeInDown"} src={message_icon} />
+                    <Link href="/contact">
+                        <img
+                            src={message_icon}
+                            alt="Contact"
+                            className={contact ? 'fadeInDown' : ''}
+                            style={{ visibility: contact ? 'visible' : 'hidden' }}
+                        />
                     </Link>
                 </div>
             </div>
