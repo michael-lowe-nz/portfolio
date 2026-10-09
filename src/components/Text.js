@@ -1,29 +1,38 @@
 import { Component } from 'preact'
-import { Link } from 'preact-router/match'
 
 import github_logo from '../assets/GitHub-Mark-Light-120px-plus.png'
 import linkedin_logo from '../assets/In-White-66px-R.png'
 import message_icon from '../assets/message-64.png'
 
+// Module-level flag so the intro animation only plays once per page load,
+// regardless of how many times the Home component mounts/unmounts.
+let hasAnimated = false
+
 class Text extends Component {
     constructor(props) {
         super(props)
-        this.state = {}
-        this.baseDelay = 1000
+        this.state = hasAnimated
+            ? { card: true, title: true, subtitle: true, github: true, linkedin: true, contact: true }
+            : {}
     }
 
     componentDidMount() {
-        setTimeout(() => this.setState({ title: true }), this.baseDelay)
-        setTimeout(() => this.setState({ subtitle: true }), this.baseDelay + 100)
-        setTimeout(() => this.setState({ github: true }), this.baseDelay + 200)
-        setTimeout(() => this.setState({ linkedin: true }), this.baseDelay + 400)
-        setTimeout(() => this.setState({ contact: true }), this.baseDelay + 500)
+        if (hasAnimated) return
+        hasAnimated = true
+
+        // Card floats in first, then content staggers inside it
+        setTimeout(() => this.setState({ card: true }),     200)
+        setTimeout(() => this.setState({ title: true }),    500)
+        setTimeout(() => this.setState({ subtitle: true }), 600)
+        setTimeout(() => this.setState({ github: true }),   700)
+        setTimeout(() => this.setState({ linkedin: true }), 850)
+        setTimeout(() => this.setState({ contact: true }),  1000)
     }
 
     render() {
-        const { title, subtitle, github, linkedin, contact } = this.state
+        const { card, title, subtitle, github, linkedin, contact } = this.state
         return (
-            <div className="text" style={{ zIndex: 10 }}>
+            <div className={`text${card ? ' fadeInDownSubtle' : ''}`} style={{ zIndex: 10 }}>
                 <h1
                     className={title ? 'fadeInDown' : ''}
                     style={{ visibility: title ? 'visible' : 'hidden' }}>
@@ -51,14 +60,14 @@ class Text extends Component {
                             style={{ visibility: linkedin ? 'visible' : 'hidden' }}
                         />
                     </a>
-                    <Link href="/contact">
+                    <a href="mailto:info@michaellowe.nz">
                         <img
                             src={message_icon}
-                            alt="Contact"
+                            alt="Email"
                             className={contact ? 'fadeInDown' : ''}
                             style={{ visibility: contact ? 'visible' : 'hidden' }}
                         />
-                    </Link>
+                    </a>
                 </div>
             </div>
         )

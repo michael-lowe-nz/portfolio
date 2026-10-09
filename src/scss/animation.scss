@@ -26,6 +26,25 @@
     visibility: visible !important;
 }
 
+/* Gentle version for larger elements like the card */
+@keyframes fadeInDownSubtle {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -12px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.fadeInDownSubtle {
+    animation-name: fadeInDownSubtle;
+    animation-duration: 500ms;
+    animation-timing-function: ease-out;
+    visibility: visible !important;
+}
+
 @keyframes fadeInLeft {
     from {
         opacity: 0;

@@ -17,27 +17,58 @@
         text-decoration: none;
     }
 
+    /* individual elements hidden until JS sets their state flag */
     h1, p, img {
         visibility: hidden;
     }
 
     h1 {
         font-family: 'Roboto Mono', monospace;
-        margin-bottom: 4px;
-        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+        font-weight: 700;
+        font-size: 1.25rem;
+        line-height: 1.1;
+        letter-spacing: 0.04em;
+        margin: 0 0 3px 0;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
     }
 
     p {
-        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+        font-size: 0.8rem;
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: 0.03em;
+        margin: 0;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
     }
 
     img {
-        height: 25px;
-        margin-right: 10px;
-        filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
+        height: 20px;
+        margin-right: 8px;
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
     }
 
     .icons {
-        margin-top: 8px;
+        margin-top: 10px;
+    }
+
+    /* Card starts invisible; fadeInDown class is added by JS after delay */
+    .text {
+        width: 320px;
+        padding: 24px 28px 22px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        box-shadow:
+            0 4px 24px rgba(0, 0, 0, 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .text.fadeInDownSubtle {
+        visibility: visible;
+        opacity: 1;
     }
 }

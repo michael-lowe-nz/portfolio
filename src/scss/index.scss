@@ -3,7 +3,7 @@
 @use './gradients';
 @use './form';
 
-@import url('https://fonts.googleapis.com/css2?family=Arimo&family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;600&family=Roboto+Mono:wght@400;700&display=swap');
 
 html, body {
     margin: 0;
@@ -16,21 +16,27 @@ html, body {
     box-sizing: inherit;
 }
 
-#app {
-    height: 100%;
-}
-
+/* White background the card sits on */
 body {
     font-family: sans-serif;
+    background-color: #ffffff;
+}
+
+#app {
+    height: 100%;
+    padding: 14px;
 }
 
 .gradient-target {
-    min-height: 100%;
+    min-height: calc(100vh - 28px); /* full viewport minus top+bottom padding */
     width: 100%;
+    border-radius: 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     color: white;
     transition: background-color 2s ease;
+    /* subtle shadow so the card lifts off the white background */
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.18);
 }
