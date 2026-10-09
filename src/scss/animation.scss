@@ -1,6 +1,30 @@
 .gradient-target {
+    position: relative;
     background-size: 200% 200%;
     animation: GradientAnimation 10s ease infinite;
+}
+
+/* Incoming gradient layer — sits above the current gradient, fades in */
+.gradient-layer {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-size: 200% 200%;
+    animation: GradientAnimation 10s ease infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.gradient-layer--fade-in {
+    opacity: 0;
+    animation:
+        GradientAnimation 10s ease infinite,
+        gradientFadeIn 0.6s ease forwards;
+}
+
+@keyframes gradientFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
 @keyframes GradientAnimation {
@@ -70,4 +94,9 @@
 @keyframes blink {
     from, to { color: transparent; }
     50%       { color: #fff; }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
 }

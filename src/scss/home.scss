@@ -1,4 +1,7 @@
 .home {
+    position: relative;
+    z-index: 1;
+
     p {
         font-family: 'Arimo', sans-serif;
         margin-top: 2px;
@@ -47,12 +50,16 @@
         filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
     }
 
+    /* Icons row — social links on the left, refresh button pushed to the right */
     .icons {
+        display: flex;
+        align-items: center;
         margin-top: 10px;
     }
 
     /* Card starts invisible; fadeInDown class is added by JS after delay */
     .text {
+        position: relative;
         width: 320px;
         max-width: calc(100vw - 56px); /* compress on screens narrower than ~376px */
         padding: 24px 28px 22px;
@@ -71,5 +78,44 @@
     .text.fadeInDownSubtle {
         visibility: visible;
         opacity: 1;
+    }
+
+    /* Refresh gradient button — lives inside .icons, pushed to the right */
+    .refresh-btn {
+        margin-left: auto;
+        width: 28px;
+        height: 28px;
+        padding: 5px;
+        background: rgba(255, 255, 255, 0.18);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        border-radius: 50%;
+        color: rgba(255, 255, 255, 0.8);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+
+        svg {
+            width: 14px;
+            height: 14px;
+            display: block;
+        }
+
+        &:hover:not(:disabled) {
+            background: rgba(255, 255, 255, 0.32);
+            color: #fff;
+        }
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: default;
+        }
+
+        &.spinning svg {
+            animation: spin 0.7s ease-in-out;
+        }
     }
 }

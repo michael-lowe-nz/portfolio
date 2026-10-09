@@ -1,8 +1,8 @@
 import Text from './Text'
 
-const Home = () => (
+const Home = ({ onRefreshGradient, refreshing }) => (
     <div className="home">
-        <Text />
+        <Text onRefreshGradient={onRefreshGradient} refreshing={refreshing} />
     </div>
 )
 

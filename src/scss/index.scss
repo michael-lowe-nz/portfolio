@@ -32,6 +32,7 @@ body {
     min-height: calc(100dvh - 28px); /* accounts for mobile browser chrome */
     width: 100%;
     border-radius: 16px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
