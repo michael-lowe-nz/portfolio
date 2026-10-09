@@ -28,7 +28,8 @@ body {
 }
 
 .gradient-target {
-    min-height: calc(100vh - 28px); /* full viewport minus top+bottom padding */
+    min-height: calc(100vh - 28px); /* fallback for browsers without dvh support */
+    min-height: calc(100dvh - 28px); /* accounts for mobile browser chrome */
     width: 100%;
     border-radius: 16px;
     display: flex;

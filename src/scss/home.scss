@@ -54,6 +54,7 @@
     /* Card starts invisible; fadeInDown class is added by JS after delay */
     .text {
         width: 320px;
+        max-width: calc(100vw - 56px); /* compress on screens narrower than ~376px */
         padding: 24px 28px 22px;
         border-radius: 12px;
         background: rgba(255, 255, 255, 0.15);
