@@ -6,8 +6,20 @@ import Home from './components/Home'
 
 const TOTAL_GRADIENTS = 13
 
+// Record the exact moment the app mounts so we can synchronise animation phases.
+const APP_START_TIME = performance.now()
+
+// Returns a negative animation-delay that puts a freshly-created element in phase
+// with the GradientAnimation that started at APP_START_TIME.
+// e.g. if 3.4 s have elapsed, delay is "-3.4s" → browser treats the animation
+// as already 3.4 s in, matching the parent perfectly.
+function syncedDelay() {
+    const elapsed = (performance.now() - APP_START_TIME) / 1000
+    return `-${(elapsed % 10).toFixed(3)}s`
+}
+
 // Map every gradient class to its actual background-image value so we can
-// apply it inline to the fade-in layer (avoids ::before CSS-var tricks).
+// apply it inline to the fade-in overlay layer.
 const GRADIENT_MAP = {
     'gradient-1':  'linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%)',
     'gradient-2':  'linear-gradient(135deg, #06b6d4 0%, #0f172a 100%)',
@@ -37,6 +49,9 @@ class App extends Component {
         this.state = {
             currentGradient: `gradient-${num}`,
             incomingGradient: null,
+            // Captured once at mount so re-renders don't change the parent's delay.
+            parentDelay: syncedDelay(),
+            overlayDelay: null,
             transitioning: false,
         }
         this.handleRefresh = this.handleRefresh.bind(this)
@@ -47,29 +62,46 @@ class App extends Component {
 
         const incoming = nextGradient(this.state.currentGradient)
 
-        // Mount the incoming layer (starts at opacity 0, fades to 1 via CSS)
-        this.setState({ incomingGradient: incoming, transitioning: true })
+        // Capture the phase at the exact moment the overlay is triggered,
+        // so it starts in sync with the parent's running animation.
+        this.setState({
+            incomingGradient: incoming,
+            overlayDelay: syncedDelay(),
+            transitioning: true,
+        })
 
-        // After the CSS transition finishes, swap current and clean up
+        // After the CSS fade-in finishes, promote overlay → current and clean up.
         setTimeout(() => {
             this.setState({
                 currentGradient: incoming,
                 incomingGradient: null,
+                overlayDelay: null,
+                // Update parentDelay so it stays in phase for the next transition.
+                parentDelay: syncedDelay(),
                 transitioning: false,
             })
-        }, 650)
+        }, 850)
     }
 
     render() {
-        const { currentGradient, incomingGradient, transitioning } = this.state
+        const { currentGradient, incomingGradient, overlayDelay, parentDelay, transitioning } = this.state
 
         return (
-            <div className={`gradient-target ${currentGradient}`}>
-                {/* Incoming gradient fades in on top; once opaque it becomes the new current */}
+            <div
+                className={`gradient-target ${currentGradient}`}
+                style={{ animationDelay: parentDelay }}
+            >
+                {/* Overlay fades in on top; its GradientAnimation is phase-synced
+                    with the parent so the background-position matches at all times. */}
                 {incomingGradient && (
                     <div
                         className="gradient-layer gradient-layer--fade-in"
-                        style={{ backgroundImage: GRADIENT_MAP[incomingGradient] }}
+                        style={{
+                            backgroundImage: GRADIENT_MAP[incomingGradient],
+                            // First value → GradientAnimation delay (synced)
+                            // Second value → gradientFadeIn delay (starts immediately)
+                            animationDelay: `${overlayDelay}, 0s`,
+                        }}
                     />
                 )}
                 <Router>
